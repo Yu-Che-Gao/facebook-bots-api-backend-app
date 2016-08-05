@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const timeZone = require('./timezone.js');
+var port = process.env.PORT || 80;
 
 app.get('/', function (req, res) {
     let log = '';
@@ -31,4 +32,8 @@ app.get('/', function (req, res) {
     });
 
     res.send(log);
+});
+
+app.listen(port, function () {
+    console.log('start to listen port ' + port);
 });
